@@ -1,0 +1,8 @@
+virtualenv venv
+udo apt install python3-virtualenv
+virtualenv venv
+source venv/bin/activate
+cd flask-sqlite/
+pip install -r requirements.txt
+
+python run.py

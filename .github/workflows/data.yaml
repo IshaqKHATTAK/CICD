@@ -1,0 +1,24 @@
+name: Hellow world workflow
+'on':
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch: null
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: print hello world
+        run: echo "Hello world"
+  goodbye:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ceckout code
+        uses: actions/checkout@v2
+      - name: print goodbye
+        run: echo "goodbye"
