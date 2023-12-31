@@ -1,0 +1,34 @@
+name: Deploy to QA
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Deploy to AWS
+        run: |
+          # Add commands to deploy the application to AWS
+          # For example: AWS CLI commands to deploy to EC2 instance
+          # Ensure the instance IP and other details are properly configured
+          
+      - name: Notify QA
+        if: success()
+        run: |
+          echo "Your changes have been deployed successfully on AWS."
+          echo "QA can access the deployed app at http://<Instance_IP>"
+          # Use a mechanism to send an email notification to QA
+
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "Deployment failed. Please check the workflow logs for details."
+          # Use a mechanism to send an email notification to the developer and you
